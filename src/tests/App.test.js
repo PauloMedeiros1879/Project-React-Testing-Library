@@ -1,18 +1,7 @@
 import React from 'react';
-import { createMemoryHistory } from 'history';
-import { Router } from 'react-router-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
+import renderWithRouter from '../renderWithRouter';
 import App from '../App';
-
-function renderWithRouter(
-  ui,
-  { route = '/', history = createMemoryHistory({ initialEntries: [route] }) } = {},
-) {
-  return {
-    ...render(<Router history={ history }>{ui}</Router>),
-    history,
-  };
-}
 
 describe('Requisito 1 - Testando o componente App.js', () => {
   test('Testa se o topo da aplicação contém um conjunto fixo de links', () => {
@@ -28,5 +17,13 @@ describe('Requisito 1 - Testando o componente App.js', () => {
     expect(thirdLink).toBeInTheDocument();
   });
 
-  test('Testa se a aplicação é redirecionada para a página inicial', () => {});
+  test('Testa se a aplicação é redirecionada para a página inicial', () => {
+    const { history } = renderWithRouter(<App />);
+
+    const home = screen.getByText(/Home/i);
+
+    fireEvent.click(home);
+    const { pathname } = history.location;
+    expect(pathname).toBe('/');
+  });
 });
