@@ -4,7 +4,7 @@ import renderWithRouter from '../renderWithRouter';
 import About from '../components/About';
 
 describe('Requisito 2 - Testa o componente About.js', () => {
-  test('Teste se a página contém as informações sobre a Pokédex', () => {
+  test('Testa se a página contém as informações sobre a Pokédex', () => {
     renderWithRouter(<About />);
 
     const pageInfo = screen.getByRole('heading', {
@@ -33,7 +33,7 @@ describe('Requisito 2 - Testa o componente About.js', () => {
     expect(informations2).toBeInTheDocument();
   });
 
-  test('Teste se a página contém a imagem de uma Pokédex', () => {
+  test('Testa se a página contém a imagem de uma Pokédex', () => {
     renderWithRouter(<About />);
 
     const image = screen.getByAltText('Pokédex');
