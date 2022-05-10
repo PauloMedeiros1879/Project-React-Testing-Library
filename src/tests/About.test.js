@@ -7,7 +7,9 @@ describe('Requisito 2 - Testa o componente About.js', () => {
   test('Teste se a página contém as informações sobre a Pokédex', () => {
     renderWithRouter(<About />);
 
-    const pageInfo = screen.getByText(/This application simulates a Pokedéx/);
+    const pageInfo = screen.getByRole('heading', {
+      level: 2,
+    });
     expect(pageInfo).toBeInTheDocument();
   });
 
@@ -24,10 +26,10 @@ describe('Requisito 2 - Testa o componente About.js', () => {
   test('Testa se a página contém dois parágrafos com texto sobre a Pokédex', () => {
     renderWithRouter(<About />);
 
-    const informations1 = screen.getByText(/This application simulates a Pokedéx/);
+    const informations1 = screen.getByText(/This application simulates a Pokédex/i);
     expect(informations1).toBeInTheDocument();
 
-    const informations2 = screen.getByText(/One can filter Pokemon by type/);
+    const informations2 = screen.getByText(/One can filter Pokémons by type/i);
     expect(informations2).toBeInTheDocument();
   });
 
