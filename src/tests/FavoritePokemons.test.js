@@ -35,7 +35,7 @@ describe('Requisito 3 - Testa o componente FavoritePokemons.js', () => {
     fireEvent.click(linkFavorites);
 
     // Verificando a existência do pokemon
-    const favoritesPoke = screen.getByText(/Pikachu/i);
+    const favoritesPoke = screen.getByTestId('pokemon-name');
     expect(favoritesPoke).toBeInTheDocument();
   });
 });
