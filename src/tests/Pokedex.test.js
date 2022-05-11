@@ -1,11 +1,11 @@
 import React from 'react';
 import { fireEvent, screen } from '@testing-library/react';
 import renderWithRouter from '../renderWithRouter';
-import Pokedex from '../components/Pokedex';
+import App from '../App';
 
 describe('Requisito 5 - Testa o componente Pokedex.js', () => {
   test('Testa se a página contém um heading h2 com o texto Encountered pokémons', () => {
-    renderWithRouter(<Pokedex />);
+    renderWithRouter(<App />);
 
     const heading = screen.getByRole('heading', {
       level: 2,
@@ -15,7 +15,7 @@ describe('Requisito 5 - Testa o componente Pokedex.js', () => {
   });
 
   test('Testa se é exibido o próximo pokémon da lista quando o botão Próximo', () => {
-    renderWithRouter(<Pokedex />);
+    renderWithRouter(<App />);
     const btn = screen.getByRole('button', {
       name: /Próximo pokémon/i,
     });
@@ -32,13 +32,13 @@ describe('Requisito 5 - Testa o componente Pokedex.js', () => {
   });
 
   test('Testa se é mostrado apenas um pokémon por vez', () => {
-    renderWithRouter(<Pokedex />);
+    renderWithRouter(<App />);
     const display = screen.getAllByTestId('pokemon-name');
     expect(display.length).toBe(1);
   });
 
   test('Testa se a Pokédex tem os botões de filtro', () => {
-    renderWithRouter(<Pokedex />);
+    renderWithRouter(<App />);
     const allButtons = screen.getByRole('button', {
       name: /All/i,
     });
@@ -52,7 +52,7 @@ describe('Requisito 5 - Testa o componente Pokedex.js', () => {
   });
 
   test('Testa se a Pokédex contém um botão para resetar o filtro', () => {
-    renderWithRouter(<Pokedex />);
+    renderWithRouter(<App />);
     const allButtons = screen.getByRole('button', {
       name: /All/i,
     });
