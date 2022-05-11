@@ -25,6 +25,12 @@ describe('Requisito 6 - Testa o componente Pokemon.js', () => {
   // Teste se o card do pokémon indicado na Pokédex contém um link de navegação para exibir detalhes deste pokémon. O link deve possuir a URL /pokemons/<id>, onde <id> é o id do pokémon exibido;
   test('Testa o card do pokémon indicado na Pokédex contém um link de navegação', () => {
     renderWithRouter(<App />);
+
+    const linkNavigator = screen.getByRole('link', {
+      name: /More Details/i,
+    });
+    // aninhando o matcher assimétrico com expect.stringMatching (Documentação)
+    expect(linkNavigator).toHaveAttribute('href', expect.stringMatching(/pokemons/));
   });
 
   // Teste se ao clicar no link de navegação do pokémon, é feito o redirecionamento da aplicação para a página de detalhes de pokémon.
