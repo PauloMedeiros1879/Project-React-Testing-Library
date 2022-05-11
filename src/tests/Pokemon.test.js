@@ -18,8 +18,8 @@ describe('Requisito 6 - Testa o componente Pokemon.js', () => {
     expect(weightPokemon).toHaveTextContent(/[0-9]/);
     expect(weightPokemon).toHaveTextContent(/kg/);
 
-    const imgPokemon = screen.getByAltText(/sprite/i);
-    expect(imgPokemon.src).not.toBe('');
+    const imgPokemon = screen.getByAltText(/Pikachu sprite/i);
+    expect(imgPokemon.src).toBe('https://cdn2.bulbagarden.net/upload/b/b2/Spr_5b_025_m.png');
   });
 
   // Teste se o card do pokémon indicado na Pokédex contém um link de navegação para exibir detalhes deste pokémon. O link deve possuir a URL /pokemons/<id>, onde <id> é o id do pokémon exibido;
