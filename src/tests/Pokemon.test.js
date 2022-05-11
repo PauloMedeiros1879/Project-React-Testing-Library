@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, userEvent } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import renderWithRouter from '../renderWithRouter';
 import App from '../App';
 
@@ -38,7 +38,7 @@ describe('Requisito 6 - Testa o componente Pokemon.js', () => {
     renderWithRouter(<App />);
 
     const navigator = screen.getByText(/More Details/i);
-    userEvent.click(navigator);
+    fireEvent.click(navigator);
 
     const pokemon = screen.getByRole('heading', {
       level: 2,
@@ -52,7 +52,7 @@ describe('Requisito 6 - Testa o componente Pokemon.js', () => {
     const { history } = renderWithRouter(<App />);
 
     const linkDetails = screen.getByText(/More details/i);
-    userEvent.click(linkDetails);
+    fireEvent.click(linkDetails);
 
     const { pathname } = history.location;
     expect(pathname).toBe('/pokemons/25');
@@ -62,21 +62,21 @@ describe('Requisito 6 - Testa o componente Pokemon.js', () => {
     renderWithRouter(<App />);
 
     // Passo 1: Simula o click no More details
-    userEvent.click(screen.getByText(/More details/));
+    fireEvent.click(screen.getByText(/More details/));
 
     // Passo 2: Simula o acesso ao checkbox para favoritar
     const favoriteCheckin = screen.getByRole('checkbox');
     expect(favoriteCheckin).toBeInTheDocument();
 
     // Passo 3: Simula o click no Checkbox
-    userEvent.click(favoriteCheckin);
+    fireEvent.click(favoriteCheckin);
 
     // Passo 4: Simula se o pokemon foi favoritado
     const favoritePoke = screen.getByAltText(/is marked as favorite/);
     expect(favoritePoke).toBeInTheDocument();
 
     // Passo 5: Testa se tem o icon star
-    userEvent.click(favoriteCheckin);
+    fireEvent.click(favoriteCheckin);
     expect(favoritePoke).toHaveProperty('src', 'http://localhost/star-icon.svg');
   });
 });
