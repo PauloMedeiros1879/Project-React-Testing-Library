@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import renderWithRouter from '../renderWithRouter';
 import App from '../App';
 
@@ -27,8 +27,11 @@ describe('Requisito 7 - Testa o componente PokemonDetails.js', () => {
     });
     fireEvent.click(buttonDetails);
 
-    const imageMap = screen.getByAltText(/Pikachu Location/i);
+    const imageMap = screen.getAllByRole('img', {
+      name: /Pikachu location/i,
+    })[0];
     expect(imageMap.src).toBe('https://cdn2.bulbagarden.net/upload/0/08/Kanto_Route_2_Map.png');
+    expect(imageMap.alt).toBe('Pikachu location');
 
     const headingLocation = screen.getByRole('heading', {
       level: 2,
@@ -61,7 +64,7 @@ describe('Requisito 7 - Testa o componente PokemonDetails.js', () => {
     fireEvent.click(buttonDetails);
 
     const favoriteCheckin = screen.getByRole('checkbox', {
-      name: /Pokemon Favoritado?/i,
+      name: /Pokémon favoritado?/i,
     });
     expect(favoriteCheckin).toBeInTheDocument();
   });
