@@ -1,16 +1,30 @@
-# 🚧 README em construção 🚧
+# React Testing Library
+###### by _[Paulo Medeiros](https://www.linkedin.com/in/paulo-medeiros-dev1879/)_
 
-<!-- Olá, Tryber!
+## :page_with_curl: Sobre
+Nesse projeto escrevi testes para uma aplicação React.
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
+## :man_technologist: Habilidades desenvolvidas
 
-É essencial que você preencha esse documento por conta própria, ok?
+- Utilizar os seletores (queries) da React-Testing-Library em testes automatizados.
 
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
+- Simular eventos com a React-Testing-Library em testes automatizados.
 
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
+- Testar fluxos lógicos assíncronos com a React-Testing-Library.
 
--->
+- Escrever testes que permitam a refatoração da estrutura dos componentes da aplicação sem necessidade de serem alterados.
+
+- Criar mocks de APIs utilizando fetch.
+
+- Testar inputs.
+
+## :hammer_and_wrench: Ferramentas Utilizadas
+
+* Jest
+
+## ⚙️ Como Executar
+Clone o repositório em uma pasta de preferência
+
+```
+git@github.com:PauloMedeiros1879/Project-React-Testing-Library.git
+```
